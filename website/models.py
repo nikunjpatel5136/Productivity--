@@ -2,6 +2,8 @@ from website import db
 from flask_login import UserMixin
 from sqlalchemy.sql import func
 
+import time
+
 class Note(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     data = db.Column(db.String(100000))
@@ -15,3 +17,4 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(1000))
     first_name = db.Column(db.String(150))
     notes = db.relationship("Note")
+
